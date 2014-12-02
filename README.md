@@ -38,7 +38,9 @@ Paper about analysis of biological images is [here] (http://bioconductor.wustl.e
 
 ## Images
 Each step of transformations:
+
 ![transformations](fillings_1.png "Each step of transformations")
 
 Final result:
+
 ![result](fillings_2.png "Final result")
