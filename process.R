@@ -15,10 +15,8 @@ img_binary <- opening(img_zoom > 0.89);
 
 # Segmentation
 fillings <- bwlabel(img_binary)
-fillings_img <- fillings / max(fillings)
 cat('Number of fillings =', max(fillings),'\n')
 
-#colorMode(img_zoom) = Color
 img_zoom_color <- channel(img_zoom, "rgb")
 objects <- paintObjects(fillings, img_zoom_color, col='#ff0000')
 
@@ -33,5 +31,5 @@ img_comb <- combine(
   resize(objects[,,3], 256, 256),
   final) # displays combination of images
 
-display(img_comb, method = "raster", all = TRUE) # Display the image
-#display(objects, method = "raster")
+display(img_comb, method = "raster", all = TRUE) # Display the image combination in grayscale
+#display(objects, method = "raster") # Display the fillings in red color
