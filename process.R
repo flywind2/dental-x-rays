@@ -12,9 +12,13 @@ img_zoom <- img[20:200, 50:150]
 
 # Thresholding + morphological operations
 img_binary <- opening(img_zoom > 0.89);
+#img_binary <- opening(thresh(img_zoom, 25, 25, 0.38)) # Adaptive Thresholding
+
+y <- distmap(img_binary)
 
 # Segmentation
-fillings <- bwlabel(img_binary)
+#fillings <- bwlabel(img_binary)
+fillings <- watershed(y, 1, 1)
 cat('Number of fillings =', max(fillings),'\n')
 
 img_zoom_color <- channel(img_zoom, "rgb")
